@@ -7,13 +7,13 @@ import * as MediaLibrary from 'expo-media-library';
 import { useRef } from 'react';
 import { captureRef } from 'react-native-view-shot';
 
-import ButtonMJC from '@/componentsMJC/ButtonMJC';
-import ImageViewerMJC from '@/componentsJAJ/ImageViewerJAJ';
-import IconButtonMJC from '@/componentsJAJ/IconButtonJAJ';
-import CircleButtonMJC from '@/componentsMJC/CircleButtonMJC';
-import EmojiPickerMJC from '@/componentsJAJ/EmojiPickerJAJ';
-import EmojiListMJC from '@/componentsJAJ/EmojiListJAJ';
-import EmojiStickerMJC from '@/componentsJAJ/EmojiStickerJAJ';
+import ButtonJAJ from '@/componentsJAJ/ButtonJAJ';
+import ImageViewerJAJ from '@/componentsJAJ/ImageViewerJAJ';
+import IconButtonJAJ from '@/componentsJAJ/IconButtonJAJ';
+import CircleButtonJAJ from '@/componentsJAJ/CircleButtonJAJ';
+import EmojiPickerJAJ from '@/componentsJAJ/EmojiPickerJAJ';
+import EmojiListJAJ from '@/componentsJAJ/EmojiListJAJ';
+import EmojiStickerJAJ from '@/componentsJAJ/EmojiStickerJAJ';
 
 const PlaceholderImage = require("@/assets/images/background-image.png");
 
@@ -76,27 +76,27 @@ export default function Index() {
     <GestureHandlerRootView style={styles.container}>
       <View style={styles.imageContainer}>
         <View ref={imageRef} collapsable={false}>
-          <ImageViewerMJC imgSource={PlaceholderImage} selectedImage={selectedImage} />
-          {pickedEmoji && <EmojiStickerMJC imageSize={40} stickerSource={pickedEmoji} />}
+          <ImageViewerJAJ imgSource={PlaceholderImage} selectedImage={selectedImage} />
+          {pickedEmoji && <EmojiStickerJAJ imageSize={40} stickerSource={pickedEmoji} />}
         </View>
       </View>
       {showAppOptions ? (
         <View style={styles.optionsContainer}>
           <View style={styles.optionsRow}>
-            <IconButtonMJC icon="refresh" label="Reset" onPress={onReset} />
-            <CircleButtonMJC onPress={onAddSticker} />
-            <IconButtonMJC icon="save-alt" label="Save" onPress={onSaveImageAsync} />
+            <IconButtonJAJ icon="refresh" label="Reset" onPress={onReset} />
+            <CircleButtonJAJ onPress={onAddSticker} />
+            <IconButtonJAJ icon="save-alt" label="Save" onPress={onSaveImageAsync} />
           </View>
         </View>
       ) : (
         <View style={styles.footerContainer}>
-          <ButtonMJC theme="primary" label="Choose a photo" onPress={pickImageAsync} />
-          <ButtonMJC label="Use this photo" onPress={() => setShowAppOptions(true)} />
+          <ButtonJAJ theme="primary" label="Choose a photo" onPress={pickImageAsync} />
+          <ButtonJAJ label="Use this photo" onPress={() => setShowAppOptions(true)} />
         </View>
       )}
-      <EmojiPickerMJC isVisible={isModalVisible} onClose={onModalClose}>
-        <EmojiListMJC onSelect={setPickedEmoji} onCloseModal={onModalClose} />
-      </EmojiPickerMJC>
+      <EmojiPickerJAJ isVisible={isModalVisible} onClose={onModalClose}>
+        <EmojiListJAJ onSelect={setPickedEmoji} onCloseModal={onModalClose} />
+      </EmojiPickerJAJ>
     </GestureHandlerRootView>
   );
 }
