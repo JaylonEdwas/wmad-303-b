@@ -1,8 +1,8 @@
 let tally = [
-    { name: "Troubleshooting", count: 0 },
-    { name: "Playing", count: 0 },
-    { name: "Cycling", count: 0 },
-    { name: "Sleeping", count: 0 },
+    { name: "Basketball", count: 0 },
+    { name: "Online Games", count: 0 },
+    { name: "Youtube", count: 0 },
+    { name: "Compuer Cleaning", count: 0 },
 ];
 const chartReferences = [];
 const surveyResultGenerator = (ctx, data, chartType) => {
@@ -17,7 +17,7 @@ const surveyResultGenerator = (ctx, data, chartType) => {
                         {
                             label: 'Acquisitions by year',
                             data: data.map(row => row.count),
-                            backgroundColor: ["blue", "gray", "green", "red", "yellow"]
+                            backgroundColor: ["blue", "red", "yellow", "green"]
                         }
                     ]
                 }
